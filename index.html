@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prof. TGI Fernando | Computer Science, University of Sri Jayewardenepura</title>
+  <meta name="description" content="Prof. TGI Fernando — Professor in Computer Science, University of Sri Jayewardenepura, Sri Lanka. Research in Machine Learning, Deep Learning, NLP, Evolutionary Computing and Swarm Intelligence." />
+  <meta name="author" content="Prof. TGI Fernando" />
+  <meta property="og:title" content="Prof. TGI Fernando — Academic Portfolio" />
+  <meta property="og:description" content="Machine Learning · NLP · Evolutionary Computing · Swarm Intelligence · University of Sri Jayewardenepura" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f1e3d'/><text x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-size='28' font-weight='700' fill='%23a5b4fc'>TF</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+          },
+          colors: {
+            navy: { 950: '#081226', 900: '#0f1e3d', 800: '#16294f', 700: '#1e3566' },
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root { --nav-h: 64px; }
+    html { scroll-padding-top: calc(var(--nav-h) + 12px); }
+    body { -webkit-font-smoothing: antialiased; }
+    .section-eyebrow { letter-spacing: .14em; }
+    .hero-grid {
+      background-image:
+        radial-gradient(circle at 85% 15%, rgba(99,102,241,.28), transparent 45%),
+        radial-gradient(circle at 10% 90%, rgba(56,189,248,.12), transparent 40%),
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: auto, auto, 32px 32px, 32px 32px;
+    }
+    .nav-link.active { color: #4338ca; }
+    .nav-link.active::after { transform: scaleX(1); }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
+      background: #4f46e5; transform: scaleX(0); transition: transform .2s ease; border-radius: 2px;
+    }
+    .tab-btn[aria-selected="true"] { background: #0f1e3d; color: #fff; border-color: #0f1e3d; }
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] .chev { transform: rotate(180deg); }
+    .chev { transition: transform .2s ease; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -1.6rem; top: .45rem; width: .7rem; height: .7rem;
+      border-radius: 9999px; background: #fff; border: 2px solid #6366f1;
+    }
+    .timeline-item.current::before { background: #6366f1; box-shadow: 0 0 0 4px rgba(99,102,241,.18); }
+    mark { background: #fde68a; color: inherit; padding: 0 .1em; border-radius: 2px; }
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+    @media print {
+      header, #backToTop, #pubControls, .no-print { display: none !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      section { break-inside: avoid-page; }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-700 font-sans leading-relaxed">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-white focus:text-navy-900 focus:px-4 focus:py-2 focus:rounded-md focus:shadow">Skip to content</a>
+
+  <!-- ============ NAVBAR ============ -->
+  <header id="siteHeader" class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-slate-200 transition-shadow">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between" aria-label="Primary">
+      <a href="#top" class="flex items-center gap-2.5 group">
+        <span class="w-9 h-9 rounded-lg bg-navy-900 text-indigo-200 grid place-items-center font-serif font-bold text-sm">TF</span>
+        <span class="font-serif font-semibold text-navy-900 text-lg leading-tight">TGI Fernando</span>
+      </a>
+      <ul id="navLinks" class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-600">
+        <li><a class="nav-link relative hover:text-indigo-700 transition-colors" href="#about">About</a></li>
+        <li><a class="nav-link relative hover:text-indigo-700 transition-colors" href="#experience">Experience</a></li>
+        <li><a class="nav-link relative hover:text-indigo-700 transition-colors" href="#research">Research &amp; Supervision</a></li>
+        <li><a class="nav-link relative hover:text-indigo-700 transition-colors" href="#publications">Publications</a></li>
+        <li><a class="nav-link relative hover:text-indigo-700 transition-colors" href="#awards">Awards</a></li>
+        <li><a class="nav-link relative hover:text-indigo-700 transition-colors" href="#teaching">Teaching</a></li>
+        <li><a class="nav-link relative hover:text-indigo-700 transition-colors" href="#contact">Contact</a></li>
+      </ul>
+      <button id="menuBtn" class="lg:hidden p-2 -mr-2 rounded-md text-navy-900 hover:bg-slate-100" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobileMenu" class="lg:hidden hidden border-t border-slate-200 bg-white">
+      <ul class="max-w-6xl mx-auto px-4 py-3 grid gap-1 text-sm font-medium text-slate-700">
+        <li><a class="block px-3 py-2.5 rounded-md hover:bg-slate-100" href="#about">About</a></li>
+        <li><a class="block px-3 py-2.5 rounded-md hover:bg-slate-100" href="#experience">Experience</a></li>
+        <li><a class="block px-3 py-2.5 rounded-md hover:bg-slate-100" href="#research">Research &amp; Supervision</a></li>
+        <li><a class="block px-3 py-2.5 rounded-md hover:bg-slate-100" href="#publications">Publications</a></li>
+        <li><a class="block px-3 py-2.5 rounded-md hover:bg-slate-100" href="#awards">Awards</a></li>
+        <li><a class="block px-3 py-2.5 rounded-md hover:bg-slate-100" href="#teaching">Teaching</a></li>
+        <li><a class="block px-3 py-2.5 rounded-md hover:bg-slate-100" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section id="top" class="hero-grid bg-navy-900 text-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 grid md:grid-cols-[1fr_auto] gap-10 md:gap-14 items-center">
+        <div class="order-2 md:order-1">
+          <p class="section-eyebrow uppercase text-xs font-semibold text-indigo-300 mb-4">Professor in Computer Science</p>
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-white leading-[1.08]">Prof. TGI Fernando</h1>
+          <p class="mt-3 text-slate-400 text-sm sm:text-base">BSc (Hons) in Mathematics <span class="text-slate-600" aria-hidden="true">·</span> MSc in Industrial Mathematics <span class="text-slate-600" aria-hidden="true">·</span> MSc in Computer Science <span class="text-slate-600" aria-hidden="true">·</span> PhD in Intelligent Systems</p>
+          <p class="mt-5 text-slate-300 text-base sm:text-lg max-w-2xl">
+            Department of Computer Science, Faculty of Applied Sciences, University of Sri Jayewardenepura, Sri Lanka.
+            Over 25 years of work in Artificial Intelligence, spanning machine learning, natural language processing,
+            evolutionary computing and swarm intelligence.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-2 text-xs sm:text-sm">
+            <a href="mailto:tgi@sjp.ac.lk" class="inline-flex items-center gap-1.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/10 px-3 py-1.5 transition-colors">
+              <svg class="w-4 h-4 text-indigo-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9 6 9-6M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/></svg>tgi@sjp.ac.lk
+            </a>
+            <a href="mailto:tgi.fernando@gmail.com" class="inline-flex items-center gap-1.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/10 px-3 py-1.5 transition-colors">
+              <svg class="w-4 h-4 text-indigo-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9 6 9-6M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/></svg>tgi.fernando@gmail.com
+            </a>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-white/10 border border-white/10 px-3 py-1.5">
+              <svg class="w-4 h-4 text-indigo-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-11.5A7 7 0 0119 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Nugegoda, Sri Lanka
+            </span>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="https://scholar.google.com/citations?user=xuV_nMIAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-5 py-3 shadow-lg shadow-indigo-900/40 transition-colors">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3L1 9l4 2.18V17l7 4 7-4v-5.82L21 10.1V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.86-5-2.86v-3.72L12 15l5-2.73v3.72z"/></svg>
+              Google Scholar
+            </a>
+            <a href="https://www.linkedin.com/in/tgi-fernando-11538036/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-5 py-3 transition-colors">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+              LinkedIn
+            </a>
+            <a href="#publications" class="inline-flex items-center gap-2 rounded-lg text-indigo-200 hover:text-white font-semibold px-3 py-3 transition-colors">
+              Browse publications <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="order-1 md:order-2 flex justify-center">
+          <div class="relative">
+            <div class="absolute -inset-3 rounded-full bg-gradient-to-tr from-indigo-500/40 to-sky-400/20 blur-xl" aria-hidden="true"></div>
+            <img src="data:image/jpeg;base64,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" alt="Portrait of Prof. TGI Fernando"
+                 class="relative w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover ring-4 ring-white/15" width="256" height="256" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats band -->
+      <div class="border-t border-white/10 bg-navy-950/40">
+        <dl class="max-w-6xl mx-auto px-4 sm:px-6 py-6 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+          <div><dt class="text-xs uppercase tracking-wider text-slate-400">Years in AI</dt><dd class="font-serif text-3xl text-white mt-1">25+</dd></div>
+          <div><dt class="text-xs uppercase tracking-wider text-slate-400">Publications listed</dt><dd class="font-serif text-3xl text-white mt-1" id="statPubs">—</dd></div>
+          <div><dt class="text-xs uppercase tracking-wider text-slate-400">Doctoral graduates</dt><dd class="font-serif text-3xl text-white mt-1" id="statPhd">—</dd></div>
+          <div><dt class="text-xs uppercase tracking-wider text-slate-400">Theses supervised</dt><dd class="font-serif text-3xl text-white mt-1" id="statTheses">—</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="py-20 sm:py-24">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="reveal">
+          <p class="section-eyebrow uppercase text-xs font-semibold text-indigo-600">About</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-navy-900 mt-2">Profile</h2>
+        </div>
+        <div class="mt-10 grid lg:grid-cols-[1.5fr_1fr] gap-10">
+          <div class="reveal space-y-4 text-[1.03rem]">
+            <p>
+              I am a Professor in Computer Science at the University of Sri Jayewardenepura, one of Sri Lanka's leading state
+              universities, with over 25 years of experience in Artificial Intelligence. My work centres on intelligent systems,
+              machine learning, natural language processing, evolutionary computing and swarm intelligence.
+            </p>
+            <p>
+              I have served as Coordinator of the MSc in Computer Science programme and as Chairperson of the Board of Study in
+              Physical Sciences at the Faculty of Graduate Studies. My academic work includes extensive research supervision,
+              curriculum design and interdisciplinary programme development.
+            </p>
+            <p>
+              I have published in journals and proceedings indexed by IEEE, Springer and Scopus, and have received multiple
+              President's Awards for Scientific Publications in Sri Lanka, as well as international scholarships from the EPSRC (UK)
+              and the Asian Development Bank. My research aims at real-world applications of machine learning, evolutionary
+              computing, swarm intelligence and NLP, through both rigorous academic inquiry and collaborative industry engagement.
+            </p>
+
+            <h3 class="font-serif text-xl font-semibold text-navy-900 pt-6">Research specializations</h3>
+            <ul class="flex flex-wrap gap-2 pt-1" aria-label="Research specializations">
+              <li class="rounded-full bg-indigo-50 text-indigo-800 border border-indigo-100 px-3 py-1 text-sm">Artificial Intelligence</li>
+              <li class="rounded-full bg-indigo-50 text-indigo-800 border border-indigo-100 px-3 py-1 text-sm">Machine Learning</li>
+              <li class="rounded-full bg-indigo-50 text-indigo-800 border border-indigo-100 px-3 py-1 text-sm">Deep Learning</li>
+              <li class="rounded-full bg-indigo-50 text-indigo-800 border border-indigo-100 px-3 py-1 text-sm">Natural Language Processing</li>
+              <li class="rounded-full bg-indigo-50 text-indigo-800 border border-indigo-100 px-3 py-1 text-sm">Evolutionary Computing</li>
+              <li class="rounded-full bg-indigo-50 text-indigo-800 border border-indigo-100 px-3 py-1 text-sm">Swarm Intelligence</li>
+              <li class="rounded-full bg-indigo-50 text-indigo-800 border border-indigo-100 px-3 py-1 text-sm">Optimization</li>
+              <li class="rounded-full bg-indigo-50 text-indigo-800 border border-indigo-100 px-3 py-1 text-sm">Root Finding of Nonlinear Equations</li>
+            </ul>
+          </div>
+
+          <aside class="reveal">
+            <div class="rounded-2xl bg-white border border-slate-200 shadow-sm p-6">
+              <h3 class="font-serif text-xl font-semibold text-navy-900">Education</h3>
+              <ol class="mt-5 space-y-5">
+                <li>
+                  <p class="font-semibold text-navy-900">PhD in Intelligent Systems</p>
+                  <p class="text-sm text-slate-500">Brunel University London, UK · 2005–2009</p>
+                  <p class="text-sm mt-1"><span class="text-slate-500">Dissertation:</span> Ant Colony Optimization Based Simulation of 3D Automatic Hose/Pipe Routing</p>
+                </li>
+                <li>
+                  <p class="font-semibold text-navy-900">MSc in Computer Science</p>
+                  <p class="text-sm text-slate-500">Asian Institute of Technology (AIT), Thailand · 2000–2002</p>
+                  <p class="text-sm mt-1"><span class="text-slate-500">Thesis:</span> Designing Sinhala Characters using Bézier Curves and B-Spline Curves</p>
+                </li>
+                <li>
+                  <p class="font-semibold text-navy-900">MSc in Industrial Mathematics</p>
+                  <p class="text-sm text-slate-500">University of Sri Jayewardenepura · 1996–1998</p>
+                  <p class="text-sm mt-1"><span class="text-slate-500">Thesis:</span> Improved Newton's Method for Solving Nonlinear Equations</p>
+                </li>
+                <li>
+                  <p class="font-semibold text-navy-900">BSc (Honours) in Mathematics</p>
+                  <p class="text-sm text-slate-500">University of Sri Jayewardenepura · 1990–1993</p>
+                </li>
+              </ol>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section id="experience" class="py-20 sm:py-24 bg-white border-y border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="reveal">
+          <p class="section-eyebrow uppercase text-xs font-semibold text-indigo-600">Experience</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-navy-900 mt-2">Positions &amp; leadership</h2>
+        </div>
+
+        <div class="mt-10 grid lg:grid-cols-2 gap-12">
+          <div class="reveal">
+            <h3 class="font-semibold text-sm uppercase tracking-wider text-slate-500">Academic appointments</h3>
+            <ol id="appointments" class="mt-6 ml-6 border-l-2 border-indigo-100 space-y-7 pl-6"></ol>
+          </div>
+          <div class="reveal">
+            <h3 class="font-semibold text-sm uppercase tracking-wider text-slate-500">Leadership &amp; international roles</h3>
+            <ol id="leadership" class="mt-6 ml-6 border-l-2 border-indigo-100 space-y-7 pl-6"></ol>
+
+            <details class="mt-10 rounded-xl border border-slate-200 bg-slate-50 group">
+              <summary class="flex items-center justify-between px-5 py-4 font-semibold text-navy-900">
+                <span>Other professional activities &amp; service</span>
+                <svg class="chev w-5 h-5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+              </summary>
+              <ul id="service" class="px-5 pb-5 space-y-2.5 text-sm list-disc pl-10 marker:text-indigo-400"></ul>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESEARCH & SUPERVISION ============ -->
+    <section id="research" class="py-20 sm:py-24">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="reveal">
+          <p class="section-eyebrow uppercase text-xs font-semibold text-indigo-600">Research &amp; Supervision</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-navy-900 mt-2">Research areas</h2>
+        </div>
+
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <article class="reveal rounded-2xl bg-white border border-slate-200 p-6 hover:shadow-md hover:-translate-y-0.5 transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-700 grid place-items-center mb-4" aria-hidden="true">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><path d="M7 6.8l3.3 4M7 17.2l3.3-4M14 12h3"/></svg>
+            </div>
+            <h3 class="font-serif text-lg font-semibold text-navy-900">Machine &amp; Deep Learning</h3>
+            <p class="text-sm mt-2">Computer vision, deepfake detection, medical imaging, explainable AI, and capsule and CNN–RNN architectures.</p>
+          </article>
+          <article class="reveal rounded-2xl bg-white border border-slate-200 p-6 hover:shadow-md hover:-translate-y-0.5 transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-700 grid place-items-center mb-4" aria-hidden="true">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5h16v10H8l-4 4V5zM8 9h8M8 12h5"/></svg>
+            </div>
+            <h3 class="font-serif text-lg font-semibold text-navy-900">Natural Language Processing</h3>
+            <p class="text-sm mt-2">Low-resource Sinhala NLP, ancient inscription recognition and translation, multimodal content moderation, LLM applications.</p>
+          </article>
+          <article class="reveal rounded-2xl bg-white border border-slate-200 p-6 hover:shadow-md hover:-translate-y-0.5 transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-700 grid place-items-center mb-4" aria-hidden="true">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="6" cy="7" r="1.5"/><circle cx="12" cy="5" r="1.5"/><circle cx="18" cy="9" r="1.5"/><circle cx="8" cy="15" r="1.5"/><circle cx="15" cy="17" r="1.5"/><path stroke-dasharray="2 2" d="M6 7l6-2 6 4-3 8-7-2z"/></svg>
+            </div>
+            <h3 class="font-serif text-lg font-semibold text-navy-900">Swarm &amp; Evolutionary</h3>
+            <p class="text-sm mt-2">Ant colony optimization, firefly and particle swarm algorithms, co-evolution, multi-objective and quantum-inspired optimization.</p>
+          </article>
+          <article class="reveal rounded-2xl bg-white border border-slate-200 p-6 hover:shadow-md hover:-translate-y-0.5 transition">
+            <div class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-700 grid place-items-center mb-4" aria-hidden="true">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M3 12h18M12 3v18"/><path d="M5 18c3-1 4-11 7-12s4 6 7 5"/></svg>
+            </div>
+            <h3 class="font-serif text-lg font-semibold text-navy-900">Numerical Methods</h3>
+            <p class="text-sm mt-2">Root finding of nonlinear equations — including the Weerakoon–Fernando third-order variant of Newton's method — and routing optimization.</p>
+          </article>
+        </div>
+
+        <!-- Supervision -->
+        <div class="mt-20 reveal">
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-navy-900">Research supervision</h2>
+            <p class="text-sm text-slate-500" id="supSummary"></p>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-2" role="tablist" aria-label="Supervision by degree level" id="supTabs"></div>
+          <div class="mt-6" id="supPanels"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PUBLICATIONS ============ -->
+    <section id="publications" class="py-20 sm:py-24 bg-white border-y border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="reveal flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p class="section-eyebrow uppercase text-xs font-semibold text-indigo-600">Publications</p>
+            <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-navy-900 mt-2">Papers, chapters &amp; theses</h2>
+          </div>
+          <a href="https://scholar.google.com/citations?user=xuV_nMIAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener noreferrer"
+             class="text-sm font-semibold text-indigo-700 hover:text-indigo-900">Full citation record on Google Scholar →</a>
+        </div>
+
+        <!-- Selected -->
+        <div class="mt-10 reveal">
+          <h3 class="font-semibold text-sm uppercase tracking-wider text-slate-500">Selected publications</h3>
+          <ol id="selectedPubs" class="mt-5 grid md:grid-cols-2 gap-4"></ol>
+        </div>
+
+        <!-- Controls -->
+        <div id="pubControls" class="mt-14 rounded-2xl bg-slate-50 border border-slate-200 p-4 sm:p-5 reveal">
+          <div class="grid sm:grid-cols-[1fr_auto_auto] gap-3">
+            <label class="relative block">
+              <span class="sr-only">Search publications</span>
+              <svg class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M20 20l-3.5-3.5"/></svg>
+              <input id="pubSearch" type="search" placeholder="Search by title, author, venue or keyword (e.g. firefly, Sinhala, deepfake)"
+                     class="w-full rounded-lg border border-slate-300 bg-white pl-10 pr-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
+            </label>
+            <label class="block">
+              <span class="sr-only">Filter by year</span>
+              <select id="pubYear" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"></select>
+            </label>
+            <label class="block">
+              <span class="sr-only">Filter by type</span>
+              <select id="pubType" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"></select>
+            </label>
+          </div>
+          <div class="mt-3 flex flex-wrap items-center gap-2 text-xs">
+            <span class="text-slate-500 mr-1">Quick topics:</span>
+            <button type="button" class="topic-chip rounded-full border border-slate-300 bg-white px-2.5 py-1 hover:border-indigo-400 hover:text-indigo-700" data-q="firefly">Firefly</button>
+            <button type="button" class="topic-chip rounded-full border border-slate-300 bg-white px-2.5 py-1 hover:border-indigo-400 hover:text-indigo-700" data-q="ant colony">Ant colony</button>
+            <button type="button" class="topic-chip rounded-full border border-slate-300 bg-white px-2.5 py-1 hover:border-indigo-400 hover:text-indigo-700" data-q="Sinhala">Sinhala</button>
+            <button type="button" class="topic-chip rounded-full border border-slate-300 bg-white px-2.5 py-1 hover:border-indigo-400 hover:text-indigo-700" data-q="deepfake">Deepfake</button>
+            <button type="button" class="topic-chip rounded-full border border-slate-300 bg-white px-2.5 py-1 hover:border-indigo-400 hover:text-indigo-700" data-q="personality">Personality</button>
+            <button type="button" class="topic-chip rounded-full border border-slate-300 bg-white px-2.5 py-1 hover:border-indigo-400 hover:text-indigo-700" data-q="nonlinear">Nonlinear equations</button>
+            <button type="button" class="topic-chip rounded-full border border-slate-300 bg-white px-2.5 py-1 hover:border-indigo-400 hover:text-indigo-700" data-q="violence">Violence detection</button>
+            <button type="button" id="pubReset" class="ml-auto font-semibold text-indigo-700 hover:text-indigo-900 px-2 py-1">Reset filters</button>
+          </div>
+        </div>
+
+        <p id="pubCount" class="mt-6 text-sm text-slate-500" aria-live="polite"></p>
+        <div id="pubList" class="mt-4"></div>
+      </div>
+    </section>
+
+    <!-- ============ AWARDS ============ -->
+    <section id="awards" class="py-20 sm:py-24">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="reveal">
+          <p class="section-eyebrow uppercase text-xs font-semibold text-indigo-600">Awards</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-navy-900 mt-2">Honours, scholarships &amp; grants</h2>
+        </div>
+        <ul id="awardList" class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></ul>
+
+        <details class="mt-10 rounded-xl border border-slate-200 bg-white reveal">
+          <summary class="flex items-center justify-between px-5 py-4 font-semibold text-navy-900">
+            <span>Awards won by supervised students</span>
+            <svg class="chev w-5 h-5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <ul id="studentAwards" class="px-5 pb-5 divide-y divide-slate-100 text-sm"></ul>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ TEACHING ============ -->
+    <section id="teaching" class="py-20 sm:py-24 bg-white border-y border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="reveal">
+          <p class="section-eyebrow uppercase text-xs font-semibold text-indigo-600">Teaching</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-navy-900 mt-2">Teaching &amp; curriculum</h2>
+        </div>
+        <div class="mt-10 grid lg:grid-cols-3 gap-6">
+          <div class="reveal lg:col-span-2 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <h3 class="font-serif text-xl font-semibold text-navy-900">Subjects taught</h3>
+            <p class="text-sm mt-1 text-slate-500">Undergraduate and postgraduate levels</p>
+            <ul class="mt-5 grid sm:grid-cols-2 gap-3 text-sm">
+              <li class="flex gap-3 items-start bg-white rounded-lg border border-slate-200 p-3"><span class="mt-1 w-2 h-2 rounded-full bg-indigo-500 shrink-0"></span><span><strong class="text-navy-900">Machine Learning</strong><br/><span class="text-slate-500">Supervised, unsupervised and deep learning</span></span></li>
+              <li class="flex gap-3 items-start bg-white rounded-lg border border-slate-200 p-3"><span class="mt-1 w-2 h-2 rounded-full bg-indigo-500 shrink-0"></span><span><strong class="text-navy-900">Natural Language Processing</strong><br/><span class="text-slate-500">Classical to transformer-based NLP</span></span></li>
+              <li class="flex gap-3 items-start bg-white rounded-lg border border-slate-200 p-3"><span class="mt-1 w-2 h-2 rounded-full bg-indigo-500 shrink-0"></span><span><strong class="text-navy-900">Evolutionary Computing</strong><br/><span class="text-slate-500">Genetic algorithms, co-evolution</span></span></li>
+              <li class="flex gap-3 items-start bg-white rounded-lg border border-slate-200 p-3"><span class="mt-1 w-2 h-2 rounded-full bg-indigo-500 shrink-0"></span><span><strong class="text-navy-900">Swarm Intelligence</strong><br/><span class="text-slate-500">ACO, PSO, firefly and related metaheuristics</span></span></li>
+              <li class="flex gap-3 items-start bg-white rounded-lg border border-slate-200 p-3"><span class="mt-1 w-2 h-2 rounded-full bg-indigo-500 shrink-0"></span><span><strong class="text-navy-900">Data Structures &amp; Algorithms</strong><br/><span class="text-slate-500">Design and analysis of algorithms</span></span></li>
+              <li class="flex gap-3 items-start bg-white rounded-lg border border-slate-200 p-3"><span class="mt-1 w-2 h-2 rounded-full bg-indigo-500 shrink-0"></span><span><strong class="text-navy-900">Discrete Structures</strong><br/><span class="text-slate-500">Mathematical foundations of computing</span></span></li>
+              <li class="flex gap-3 items-start bg-white rounded-lg border border-slate-200 p-3"><span class="mt-1 w-2 h-2 rounded-full bg-indigo-500 shrink-0"></span><span><strong class="text-navy-900">Computer Programming</strong><br/><span class="text-slate-500">Including object-oriented programming</span></span></li>
+            </ul>
+          </div>
+          <div class="reveal rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <h3 class="font-serif text-xl font-semibold text-navy-900">Curriculum &amp; programmes</h3>
+            <ul class="mt-5 space-y-4 text-sm">
+              <li><strong class="text-navy-900 block">MSc in Computer Science</strong>Programme Coordinator, 2012–2017</li>
+              <li><strong class="text-navy-900 block">MSc in Data Science &amp; AI</strong>Course coordination, including Machine Learning II (DSA 552) and NLP (DSA 6123)</li>
+              <li><strong class="text-navy-900 block">BSc Hons in Artificial Intelligence</strong>SCAQA programme review panel, 2024–2025</li>
+              <li><strong class="text-navy-900 block">ICT degree, Faculty of Technology, USJ</strong>Curriculum development consultant, 2015–2017</li>
+              <li><strong class="text-navy-900 block">Open University of Sri Lanka</strong>Senior Consultant for undergraduate projects (2009–2013); editor of CPU2242 Object Oriented Programming using C++ and Java</li>
+              <li><strong class="text-navy-900 block">Visiting Lecturer</strong>Various universities in Sri Lanka</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="py-20 sm:py-24 bg-navy-900 text-slate-300 hero-grid">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="reveal">
+          <p class="section-eyebrow uppercase text-xs font-semibold text-indigo-300">Contact</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-white mt-2">Get in touch</h2>
+          <p class="mt-3 max-w-2xl">Prospective research students, collaborators and industry partners are welcome to reach out about machine learning, NLP, evolutionary computing and swarm intelligence projects.</p>
+        </div>
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="reveal rounded-xl bg-white/5 border border-white/10 p-5">
+            <h3 class="text-xs uppercase tracking-wider text-slate-400">Official email</h3>
+            <div class="mt-2 flex items-center justify-between gap-2">
+              <a class="text-white font-medium hover:text-indigo-200 break-all" href="mailto:tgi@sjp.ac.lk">tgi@sjp.ac.lk</a>
+              <button class="copy-btn no-print shrink-0 text-xs rounded-md border border-white/20 px-2 py-1 hover:bg-white/10" data-copy="tgi@sjp.ac.lk" aria-label="Copy official email">Copy</button>
+            </div>
+          </div>
+          <div class="reveal rounded-xl bg-white/5 border border-white/10 p-5">
+            <h3 class="text-xs uppercase tracking-wider text-slate-400">Personal email</h3>
+            <div class="mt-2 flex items-center justify-between gap-2">
+              <a class="text-white font-medium hover:text-indigo-200 break-all" href="mailto:tgi.fernando@gmail.com">tgi.fernando@gmail.com</a>
+              <button class="copy-btn no-print shrink-0 text-xs rounded-md border border-white/20 px-2 py-1 hover:bg-white/10" data-copy="tgi.fernando@gmail.com" aria-label="Copy personal email">Copy</button>
+            </div>
+          </div>
+          <div class="reveal rounded-xl bg-white/5 border border-white/10 p-5">
+            <h3 class="text-xs uppercase tracking-wider text-slate-400">Office telephone</h3>
+            <a class="mt-2 block text-white font-medium hover:text-indigo-200" href="tel:+94112758907">+94 11 275 8907</a>
+          </div>
+          <div class="reveal rounded-xl bg-white/5 border border-white/10 p-5">
+            <h3 class="text-xs uppercase tracking-wider text-slate-400">Profiles</h3>
+            <div class="mt-2 flex flex-col gap-1">
+              <a class="text-white font-medium hover:text-indigo-200" href="https://scholar.google.com/citations?user=xuV_nMIAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>
+              <a class="text-white font-medium hover:text-indigo-200" href="https://www.linkedin.com/in/tgi-fernando-11538036/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            </div>
+          </div>
+        </div>
+        <address class="reveal not-italic mt-6 rounded-xl bg-white/5 border border-white/10 p-5">
+          <h3 class="text-xs uppercase tracking-wider text-slate-400">Postal address</h3>
+          <p class="mt-2 text-white">Department of Computer Science, Faculty of Applied Sciences<br/>University of Sri Jayewardenepura, Gangodawila, Nugegoda 10250, Sri Lanka</p>
+        </address>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-navy-950 text-slate-500 text-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-6 flex flex-wrap gap-3 justify-between">
+      <p>© <span id="year"></span> Prof. TGI Fernando · University of Sri Jayewardenepura</p>
+      <p>Last updated <time datetime="2026-10">October 2026</time></p>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="fixed bottom-5 right-5 z-40 w-11 h-11 rounded-full bg-navy-900 text-white shadow-lg grid place-items-center opacity-0 pointer-events-none transition-opacity hover:bg-indigo-700" aria-label="Back to top">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 15l6-6 6 6"/></svg>
+  </button>
+
+  <script>
+  /* =====================================================================
+     DATA — edit these arrays to update the site. No build step needed.
+     ===================================================================== */
+
+  const APPOINTMENTS = [
+    { role: 'Professor in Computer Science', org: 'Department of Computer Science, Faculty of Applied Sciences, University of Sri Jayewardenepura', when: 'Dec 2019 – Present', current: true },
+    { role: 'Senior Lecturer (Grade I) in Computer Science', org: 'Department of Computer Science, University of Sri Jayewardenepura', when: 'Jun 2015 – Dec 2019' },
+    { role: 'Senior Lecturer (Grade II) in Computer Science', org: 'Department of Computer Science, University of Sri Jayewardenepura', when: 'Jun 2014 – 2015' },
+    { role: 'Senior Lecturer (Grade II) in Computer Science', org: 'Department of Statistics and Computer Science, University of Sri Jayewardenepura', when: 'Jun 2009 – 2014' },
+    { role: 'Lecturer', org: 'Department of Statistics and Computer Science, University of Sri Jayewardenepura', when: '1998 – 2009' },
+    { role: 'Lecturer', org: 'Department of Mathematics, University of Sri Jayewardenepura', when: '1997 – 1998' },
+  ];
+
+  const LEADERSHIP = [
+    { role: 'Chairperson, Board of Study in Physical Sciences', org: 'Faculty of Graduate Studies, University of Sri Jayewardenepura', when: 'Sep 2022 – Sep 2025' },
+    { role: 'Research Fellow in Machine Learning', org: 'Centre for Vision, Speech and Signal Processing (CVSSP), University of Surrey, UK', when: 'May 2021 – May 2022' },
+    { role: 'Senate Representative, Faculty of Applied Sciences', org: 'University of Sri Jayewardenepura', when: '2017 – Present', current: true },
+    { role: 'Coordinator, MSc Programme in Computer Science', org: 'Department of Computer Science, University of Sri Jayewardenepura', when: 'Apr 2012 – Feb 2017' },
+    { role: 'PhD Research Student & Demonstrator in Computer Programming', org: 'Department of Electronic and Computer Engineering, Brunel University London, UK', when: '2005 – 2009' },
+  ];
+
+  const SERVICE = [
+    'Research supervisor for PhD, MPhil and MSc degrees in Computer Science, Data Science & AI, and Industrial Mathematics.',
+    'Consultant and mentor in machine learning, deep learning, evolutionary computing, swarm intelligence and optimization for industry-focused R&D projects.',
+    'Panel member, Standing Committee on Accreditation and Quality Assurance (SCAQA) — Programme Review of the BSc Honours in Artificial Intelligence (2024–2025).',
+    'Member, Board of Study in Physical Sciences, Faculty of Graduate Studies, USJ (2011–present).',
+    'Associate Editor, Journal of Computer Science, University of Sri Jayewardenepura (2012–present).',
+    'Editorial Board, Vidyodaya Journal of Science, University of Sri Jayewardenepura (2015–2018).',
+    'Curriculum development consultant, ICT degree programme, Faculty of Technology, USJ (2015–2017).',
+    'Senior Consultant for undergraduate student projects, Department of Computer Science, Open University of Sri Lanka (2009–2013).',
+    'Editor, CPU2242 Object Oriented Programming using C++ and Java, Open University of Sri Lanka.',
+    'Senior Treasurer, Students\' Council, Faculty of Applied Sciences, USJ (2010–2011).',
+    'Reviewer for international conferences and journals; session chair and best-paper judging panel member at international conferences.',
+    'Faculty representative on various university committees; visiting lecturer at several Sri Lankan universities.',
+  ];
+
+  // Supervision — status: 'completed' | 'ongoing'
+  const SUPERVISION = {
+    phd: { label: 'PhD', groups: [
+      { name: 'PhD in Computer Science', items: [
+        { name: 'Dr. Umanda Dikwatta', year: '2025', title: 'Measuring the Degree of Violence in Social Media Image Posts Using Machine Learning Algorithms', status: 'completed' },
+        { name: 'Dr. WMKS Ilmini', year: '2024', title: 'Personality Traits Assessment Using Facial Features with Deep Learning Algorithms', status: 'completed' },
+        { name: 'Dr. MKA Ariyaratne', year: '2018', title: 'Firefly Algorithm Based Self-Tuning Algorithm to Solve Systems of Nonlinear Equations', status: 'completed' },
+        { name: 'Ms. Sankani Heenkenda', year: '2020 – present', title: 'Developing Machine Learning Models for Translating Sinhala and Pali Inscriptions to English Language in the Sri Lankan Context', status: 'ongoing' },
+        { name: 'Ms. MC Weerawardana', year: '2020 – present', title: 'Automatic Detection of Computer Generated Videos using Machine Learning Algorithms', status: 'ongoing' },
+        { name: 'Ms. SCM de S Sirisuriya', year: '2021 – present', title: 'Automatic Routing in 2D/3D Environments using Deep Learning Algorithms', status: 'ongoing' },
+      ]},
+    ]},
+    mphil: { label: 'MPhil', groups: [
+      { name: 'MPhil in Computer Science', items: [
+        { name: 'Ms. WPJ Pemarathne', year: '2020', title: 'Electrical Cable Optimization System for Single-storey Building Using Ant Colony Optimization', status: 'completed' },
+        { name: 'Ms. IDID Ariyasingha', year: '2017', title: 'Random Weight-based Ant Colony Optimization Algorithm for Multi-objective Optimization Problems', status: 'completed' },
+        { name: 'Ms. W.G. Lavanka Harshani', year: '2025 – present', title: 'Proactive Detection of Driver Intoxication and Drowsiness Using Technology: Bridging Gaps in Road Safety Measures in Sri Lanka', status: 'ongoing' },
+      ]},
+    ]},
+    msc: { label: 'MSc', groups: [
+      { name: 'MSc in Data Science and Artificial Intelligence', items: [
+        { name: 'Mr. N Sivendran', year: '2025', title: 'Development of a Machine Learning-Based Detection Pipeline for Rilawa Monkeys with the Intention of IoT Integration' },
+        { name: 'Mr. Alfred Gnanapragasam', year: '2025', title: 'Impact of News Sentiment on Sri Lanka\'s Financial Markets' },
+        { name: 'Mr. M Kumarathasan', year: '2025', title: 'Facial Emotion Detection in Children with Autism Using Few-Shot Learning' },
+        { name: 'Mr. G Kuhajevan', year: '2025', title: 'Aspect Based Automated Essay Scoring' },
+        { name: 'Mr. PT Geeganage', year: '2025', title: 'AI-Powered Applicant Tracking System: Revolutionizing Resume Screening and Candidate Ranking' },
+        { name: 'Mr. DGP Madhusanka', year: '2025', title: 'Deep Learning Aided Traffic Violation Detection Using Dynamic Video Footages' },
+        { name: 'Mr. CI Ramanayake', year: '2024', title: 'Telco Customer Churn Prediction Using Composite Deep Learning Techniques' },
+        { name: 'Ms. HK Liyanage', year: '2024', title: 'Predicting the Brand Positioning of Fast-Moving Consumer Goods Companies in Sri Lanka by Using the Impact of Social Media' },
+        { name: 'Ms. MAC Jayanchana', year: '2024', title: 'QA System for Time Series Analysis in Diabetes and Heart Diseases: Utilizing LLMs' },
+        { name: 'Ms. MDD Manohari', year: '2024', title: 'Feasibility of Identifying Depression in Twitter Content Using Large Language Models (LLMs)' },
+        { name: 'Mr. RMCP Ratnayake', year: '2024', title: 'Artificial Intelligence Bot to Enhance the Efficiency in Relationship Banking' },
+        { name: 'Ms. WGS Lakmini', year: '2024', title: 'Analyzing News Sentiment Towards Immigration Using Natural Language Processing' },
+      ]},
+      { name: 'MSc in Computer Science', items: [
+        { name: 'Mr. GDT Ranmuthu', year: '2024', title: 'Retrieval of Information from Handwritten Betting Slips: Understanding Handwritten Documents with Variable Layout' },
+        { name: 'Ms. KGR Ranawaka', year: '2024', title: 'Enhancing Snake Species Identification in Sri Lanka Through Explainable Artificial Intelligence Techniques' },
+        { name: 'Ms. KGP Samanthi', year: '2024', title: 'Applying Conversational AI for Inquiries Based on Export Crops with Price and Yield Predictions' },
+        { name: 'Ms. BHS Nilmini', year: '2020', title: 'Developing Recurrent Neural Network Models to Generate New Sinhala-Like Personal Names and Examine Their Gana Effects' },
+        { name: 'Ms. NTK Naulla', year: '2020', title: 'Predicting the Next Word of a Sinhala Word Series using Machine Learning' },
+        { name: 'Mr. Kasun Vimukthi Dissanayake Elibichchiya', year: '2018', title: 'Classification of Heart Beats to Identify and Alert Arrhythmia' },
+        { name: 'Mr. SM Maddumahewa', year: '2018', title: 'A Digital Image Processing and Support Vector Machines Based Approach to Understand the Emission Levels of Diesel Vehicles' },
+        { name: 'Mr. AJP Samarawickrama', year: '2017', title: 'A Recurrent Neural Network Approach in Predicting Daily Stock Prices: An Application to the Sri Lankan Stock Market' },
+        { name: 'Mr. DAA Deepal', year: '2016', title: 'Convolutional Neural Network Approach for the Detection of Lung Cancer in Chest X-Ray Images' },
+      ]},
+      { name: 'MSc in Industrial Mathematics', items: [
+        { name: 'Ms. HPS Nishani', year: '2011', title: 'Improved Newton\'s Method to Solve Systems of Nonlinear Equations' },
+        { name: 'Dr. RP Abeysooriya', year: '2011', title: 'Genetic Optimization of Cut Order Planning in Apparel Manufacturing' },
+        { name: 'Ms. CP Amarajeewa', year: '2002', title: 'Optical Character Recognition (OCR) of Sinhala Characters by Feature Analysis Followed by Matrix Matching' },
+        { name: 'Mr. PAS Pathiraja', year: '2002', title: 'Modelling Sinhala Characters using Cubic Rational Bézier Curves' },
+      ]},
+    ]},
+    bsc: { label: 'BSc (Hons)', groups: [
+      { name: 'BSc (Honours) in Computer Science', items: [
+        { name: 'Mr. SN Arangala', year: '2025', title: 'A Hybrid Swarm-SGD Algorithm for Training Artificial Neural Networks' },
+        { name: 'Ms. BR Welikala', year: '2025', title: 'Machine Learning-Based Indices for Assessing Cricket Team Performance' },
+        { name: 'Ms. NH Wanigasinghe', year: '2024', title: 'Optimizing Feature Selection in Spam Email Detection Using Co-Evolutionary Algorithms' },
+        { name: 'Mr. BDI Tharaka', year: '2024', title: 'Exchange Rates Prediction Using Generative Adversarial Network: A Study on Selected Sri Lankan Foreign Exchange Rates' },
+        { name: 'Mr. GBC Prabhashwara', year: '2024', title: 'TeeGANN: A Tool to Design T-shirts using Generative Adversarial Network' },
+        { name: 'Ms. KGS Manimekala', year: '2024', title: 'Model an Academic Counselling Chatbot for CS and ICT Students of University of Sri Jayewardenepura' },
+        { name: 'Ms. GLHB Gaweshika', year: '2024', title: 'Optimal Personal Study Plan Generation using Meta-Heuristic Algorithms' },
+        { name: 'Mr. NH Wedisinghe', year: '2023', title: 'Explainable AI Methods for Identifying the Critical Areas of Chest X-Ray Images' },
+        { name: 'Mr. AAPK Nissanka', year: '2023', title: 'Real-time Traffic Sign Detection for Advanced Driver Assistance Systems' },
+        { name: 'Mr. JN Jayasinghe', year: '2023', title: 'Comparative Study on the Performance of High Resource NLP Models vs Low Resource NLP Models on Translated Text for Comment Toxicity Classification' },
+        { name: 'Ms. RKMTN Ranaweera', year: '2020', title: 'Prediction of Potentially Hazardous Asteroids using Deep Learning' },
+        { name: 'Ms. EMVN Amarajeewa', year: '2020', title: 'A Neural Network to Automate Planetary Surface Dating by Crater Counting' },
+        { name: 'Ms. MD Welikala', year: '2019', title: 'Komposer V2 – A Hybrid Approach to Intelligent Musical Composition based on Generative Adversarial Networks with a Variational Autoencoder' },
+        { name: 'Mr. AC Gammanpila', year: '2019', title: 'Comparison Study of Quantum Inspired Genetic Algorithms and Classical Genetic Algorithms with Travelling Salesman Problem executed on real Quantum Computers' },
+        { name: 'Mr. Dulan S. Dias', year: '2018', title: 'Komposer – Automated Musical Note Generation Based on Lyrics with Recurrent Neural Networks' },
+        { name: 'Ms. Thisuri C Lekamge', year: '2018', title: 'Gender Classification and Finding Effect of Gana Based on Personal Names with Recurrent Neural Networks' },
+        { name: 'Ms. AS Nuwanthika', year: '2018', title: 'Automatic Hose/Pipe Routing Using Convolutional Neural Networks' },
+        { name: 'Mr. Piriyankan Kirupaharan', year: '2017', title: 'A Mobile Application to Identify Fish Species Using Convolutional Neural Networks' },
+        { name: 'Mr. PM Jayanka', year: '2016', title: 'A Computer-based System to Identify the Ayurvedic Herbal Plant Leaves in Sri Lanka' },
+        { name: 'Mr. WDNS Wijesuriya', year: '2016', title: 'Predicting Successfulness of Radio Advertisements Using Recurrent Neural Networks' },
+        { name: 'Mr. TC Matharage', year: '2016', title: 'Training Convolutional Neural Networks Using the Firefly Algorithm' },
+        { name: 'Ms. SL Heenatigala', year: '2016', title: 'Search for an Efficient Algorithm Without the Derivatives to Numerically Solve Nonlinear Equations' },
+        { name: 'Ms. UR Weeraratna', year: '2015', title: 'Recurrent Neural Network Based Approach for Sinhala Speech Recognition' },
+        { name: 'Mr. ARAS Weerathunga', year: '2015', title: 'Convolutional Neural Network Based Approach for Sinhala Speech Recognition' },
+        { name: 'Mr. HTM Perera', year: '2015', title: 'Deep Learning Approach for Sinhala Hand-written Character Recognition' },
+        { name: 'Mr. K Nanayakkara', year: '2015', title: 'Independent EEG Enabled Affective Human-Computer Interface' },
+        { name: 'Ms. HN Gunasinghe', year: '2014', title: 'System for Choosing the Right Eyeglasses Based on Face Shape Using Deep Learning Algorithms' },
+        { name: 'Mr. CD Athuraliya', year: '2014', title: 'Deep Learning Approach for Logo Recognition in Images of Complex Environments' },
+        { name: 'Mr. RMEJ Rathnayaka', year: '2014', title: 'Development of a Tool to Find the Astrological Effects of a Name' },
+        { name: 'Ms. KS Ilmini', year: '2013', title: 'Recognize Person\'s Characteristics Using Artificial Neural Networks' },
+        { name: 'Ms. TYT Totagamuwa', year: '2013', title: 'A Comparative Study on Weight Optimization of Neural Networks Using Nature-inspired Algorithms with Cuckoo Search Algorithm' },
+        { name: 'Ms. TMTM Perera', year: '2013', title: 'Multi-agent System for Doctor, Patient, Hospital and Pharmacy' },
+        { name: 'Ms. MKA Ariyaratne', year: '2012', title: 'A Comparative Study of Nature-inspired Algorithms with Firefly Algorithm' },
+        { name: 'Ms. Janaki Wanigasooriya', year: '2011', title: 'Multi-vehicle Passenger Allocation and Route Optimization for Employee Transportation Using Genetic Algorithms' },
+        { name: 'Ms. KAG Udeshani', year: '2010', title: 'Lung Cancer Detection System Using Neural Networks and Image Processing Techniques' },
+        { name: 'Mr. DVS Hettiarachchi', year: '2009', title: 'Mobile Navigation System' },
+      ]},
+      { name: 'BSc (Honours) in Mathematics', items: [
+        { name: 'Ms. SL Heenatigala', year: '2021', title: 'Finite Difference Weerakoon-Fernando Method to Solve Nonlinear Equations Without Using Derivatives' },
+        { name: 'Mr. PCP Peiris', year: '2010', title: 'Review of the Citations of the Research Paper: A Variant of Newton\'s Method with Accelerated Third-order Convergence' },
+        { name: 'Ms. MDL Salgado', year: '2009', title: 'Degree Reduction of Bézier Curves' },
+      ]},
+    ]},
+  };
+
+  // Publications — type: Journal | Conference | Book Chapter | Thesis | Preprint | Other
+  // selected: true → also shown in the "Selected publications" cards
+  const PUBS = [
+    { y: 2026, type: 'Journal', selected: true, a: 'Weerawardana MC, Fernando TGI', t: 'Effectiveness of Capsule Networks in Detecting Deepfakes Instead of Traditional CNNs', v: 'International Journal of Advanced Computer Science and Applications (IJACSA), 17(2), 366–374', doi: '10.14569/IJACSA.2026.0170239' },
+    { y: 2026, type: 'Journal', selected: true, a: 'Wanigasingha N, Harshini H, Ariyaratne MKA, Fernando TGI, Dikwatta U, Samarasinghe U', t: 'GI meets AI: Glycemic index in the age of AI, computational breakthroughs', v: 'Future Technology, 5(1), 93–126', url: 'https://fupubco.com/futech/article/view/526' },
+
+    { y: 2025, type: 'Journal', a: 'Weerawardana MC, Fernando TGI', t: 'Deepfake Image Detection: Comparison of Different Convolutional Neural Networks for Image Detection', v: 'Current Scientia, 28(02), 47–59' },
+    { y: 2025, type: 'Journal', a: 'Heenkenda HMSCR, Fernando TGI', t: 'Automated Detection and Recognition of Sinhalese Inscriptions using YOLOv5', v: 'KDU Journal of Multidisciplinary Studies' },
+    { y: 2025, type: 'Conference', selected: true, a: 'Ranawaka G, Fernando TGI', t: 'Enhancing Snake Species Identification in Sri Lanka Through Explainable Artificial Intelligence Techniques', v: '9th SLAAI International Conference on Artificial Intelligence (SLAAI-ICAI), Colombo, IEEE', doi: '10.1109/SLAAI-ICAI68534.2025.11318527' },
+    { y: 2025, type: 'Journal', selected: true, a: 'Dikwatta U, Fernando TGI', t: 'How Can Multimodal Deep Learning Detect Violence in Low-Resource Sinhala Social Media Posts?', v: 'Journal of Theoretical and Applied Information Technology, 103(17)' },
+    { y: 2025, type: 'Journal', a: 'Deepal DAA, Ariyaratne MKA, De Silva PR, Fernando TGI', t: 'Faces Unveiled: A Deep Dive into Modern Face Detection and Recognition Techniques', v: 'International Journal of Research in Computing (IJRC), 4(1)' },
+    { y: 2025, type: 'Journal', a: 'Samanthi KGPH, Ariyaratne MKA, Fernando TGI', t: 'Conversational AI for Cinnamon and Coffee Exports: Insights on Price and Yield', v: 'International Journal of Research in Computing (IJRC), 4(1)' },
+
+    { y: 2024, type: 'Conference', a: 'Ramanayake C, Liyanage D, Dhananjaya P, Kumara C, Fernando TGI', t: 'Telco Customer Churn Prediction Using Composite Deep Learning Technique', v: '6th International Conference on Advancements in Computing (ICAC), IEEE', doi: '10.1109/ICAC64487.2024.10851050' },
+    { y: 2024, type: 'Conference', a: 'Wanigasinghe NH, Fernando TGI', t: 'Optimizing Feature Selection in Spam Email Detection Using Co-Evolutionary Algorithm', v: '8th SLAAI International Conference on Artificial Intelligence (SLAAI-ICAI), IEEE', doi: '10.1109/SLAAI-ICAI63667.2024.10844981' },
+    { y: 2024, type: 'Conference', a: 'Wedisinghe H, Fernando TGI', t: 'Explainable AI for Early Lung Cancer Detection: A Path to Confidence', v: '4th International Conference on Advanced Research in Computing (ICARC), IEEE', doi: '10.1109/ICARC61713.2024.10499787' },
+    { y: 2024, type: 'Journal', a: 'Dikwatta U, Fernando TGI, Ariyaratne MKA', t: 'Exploring mechanisms for detecting violent content in Sinhala image posts: Rationale with unsupervised vs supervised techniques', v: 'International Journal of Research in Computing (IJRC)' },
+
+    { y: 2023, type: 'Journal', selected: true, a: 'Heenkenda HMSCR, Fernando TGI', t: 'Chronological attribution of Sinhalese inscriptions using deep learning approaches', v: 'Journal of the National Science Foundation of Sri Lanka', doi: '10.4038/jnsfsr.v51i3.11200' },
+    { y: 2023, type: 'Journal', selected: true, a: 'Ilmini WMKS, Fernando TGI', t: 'Detection and explanation of apparent personality using deep learning: a short review of current approaches and future directions', v: 'Computing (Springer)', doi: '10.1007/s00607-023-01221-6' },
+    { y: 2023, type: 'Journal', a: 'Ilmini WMKS, Fernando TGI', t: 'Explaining the Outputs of Convolutional Neural Network – Recurrent Neural Network (CNN-RNN) Based Apparent Personality Detection Models Using the Class Activation Maps', v: 'International Journal of Advanced Computer Science and Applications (IJACSA), 14(2)', url: 'https://thesai.org/Publications/ViewPaper?Volume=14&Issue=2&Code=IJACSA&SerialNo=24' },
+
+    { y: 2022, type: 'Journal', a: 'Ilmini WMKS, Fernando TGI', t: 'Performance Analysis of State-of-the-Art Deep Learning Models in the Visual-Based Apparent Personality Detection', v: 'Vidyodaya Journal of Science, 25(02)', doi: '10.31357/vjs.v25i02.6174' },
+    { y: 2022, type: 'Journal', a: 'Sirisuriya SCMS, Fernando TGI, Ariyaratne MKA', t: 'Algorithms for path optimizations: a short survey', v: 'Computing (Springer)', doi: '10.1007/s00607-022-01126-w' },
+    { y: 2022, type: 'Book Chapter', a: 'Ariyaratne M, Fernando TGI', t: 'A Comprehensive Review of the Firefly Algorithms for Data Clustering', v: 'In A. Biswas, C. B. Kalayci & S. Mirjalili (Eds.), Advances in Swarm Intelligence: Variations and Adaptations for Optimization Problems, Springer, 217–239', doi: '10.1007/978-3-031-09835-2_12' },
+    { y: 2022, type: 'Conference', a: 'Ilmini WMKS, Fernando TGI', t: 'Facial Feature Identification in the Deep Learning Based Apparent Personality Detection', v: '2nd International Conference on Advanced Research in Computing (ICARC), 49–54' },
+    { y: 2022, type: 'Conference', a: 'Ranaweera RKMTN, Fernando TGI', t: 'Prediction of Potentially Hazardous Asteroids using Deep Learning', v: '2nd International Conference on Advanced Research in Computing (ICARC), 31–36' },
+    { y: 2022, type: 'Conference', a: 'Naulla NTK, Fernando TGI', t: 'Predicting the Next Word of a Sinhala Word Series Using Recurrent Neural Networks', v: '2nd International Conference on Advanced Research in Computing (ICARC), 13–18' },
+
+    { y: 2021, type: 'Other', a: 'Heenatigala SL, Weerakoon S, Fernando TGI', t: 'Finite Difference Weerakoon-Fernando Method to Solve Nonlinear Equations Without Using Derivatives', v: '' },
+    { y: 2021, type: 'Conference', a: 'Weerawardana MC, Fernando TGI', t: 'Deepfakes Detection Methods: A Literature Survey', v: '10th International Conference on Information and Automation for Sustainability (ICIAfS), IEEE, 76–81' },
+    { y: 2021, type: 'Conference', a: 'Dikwatta U, Fernando TGI', t: 'Violence Detection of Sinhala Image Posts with Autoencoders', v: '10th International Conference on Information and Automation for Sustainability (ICIAfS), IEEE, 275–280' },
+    { y: 2021, type: 'Conference', a: 'Priyankan K, Fernando TGI', t: 'Mobile Application to Identify Fish Species Using YOLO and Convolutional Neural Networks', v: 'Proceedings of International Conference on Sustainable Expert Systems (ICSES 2020), Springer Nature, 303–317' },
+
+    { y: 2020, type: 'Journal', a: 'Heenkenda H, Fernando TGI', t: 'Approaches Used to Recognize and Decipher Ancient Inscriptions: A Review', v: 'Vidyodaya Journal of Science, 23(2), 42–55' },
+    { y: 2020, type: 'Conference', a: 'Ariyaratne MKA, Fernando TGI, Weerakoon S', t: 'A Hybrid Algorithm to Solve Multi-model Optimization Problems Based on the Particle Swarm Optimization with a Modified Firefly Algorithm', v: 'Proceedings of the Future Technologies Conference (FTC), Springer, 308–325' },
+    { y: 2020, type: 'Conference', a: 'Welikala MD, Fernando TGI', t: 'Komposer V2: A Hybrid Approach to Intelligent Musical Composition Based on Generative Adversarial Networks with a Variational Autoencoder', v: 'Proceedings of the Future Technologies Conference (FTC), Springer, 413–425' },
+    { y: 2020, type: 'Conference', a: 'Gammanpila AC, Fernando TGI', t: 'Implementation of Modified Talbi\'s Quantum Inspired Genetic Algorithm for Travelling Salesman Problem on an IBM Quantum Computer', v: 'Proceedings of the Future Technologies Conference (FTC), Springer, 70–88' },
+    { y: 2020, type: 'Journal', a: 'Premarathne WPJ, Fernando TGI', t: 'Optimising Electrical Wiring Design of a Single-Storey Floor Plan using Multi-Objective Ant Colony System Algorithm (MOACS-EWR)', v: 'Vidyodaya Journal of Science, 23(1), 17–32' },
+    { y: 2020, type: 'Book Chapter', a: 'Deepal DAA, Fernando TGI', t: 'Convolutional Neural Network Approach for the Detection of Lung Cancers in Chest X-Ray Images', v: 'In Deep Learning for Cancer Diagnosis, Studies in Computational Intelligence, Springer, 203–226' },
+    { y: 2020, type: 'Journal', a: 'Jayanka M, Fernando TGI', t: 'Recognising Ayurvedic Herbal Plants in Sri Lanka using Convolutional Neural Networks', v: 'Vidyodaya Journal of Science, 23(1), 48–60' },
+    { y: 2020, type: 'Journal', a: 'Premarathne WPJ, Fernando TGI', t: 'Multi objective ant colony algorithm for electrical wire routing', v: 'International Journal of Swarm Intelligence, 5(1), 97–135' },
+    { y: 2020, type: 'Journal', a: 'Ariyaratne MKA, Fernando TGI, Weerakoon S', t: 'A self-tuning algorithm to approximate roots of systems of nonlinear equations based on the firefly algorithm', v: 'International Journal of Swarm Intelligence, 5(1), 60–96' },
+
+    { y: 2019, type: 'Conference', a: 'Abayaratne SB, Ilmini W, Fernando TGI', t: 'Identification of Snake Species in Sri Lanka Using Convolutional Neural Networks', v: '3rd SLAAI International Conference on Artificial Intelligence' },
+    { y: 2019, type: 'Conference', a: 'Samarawickrama AJP, Fernando TGI', t: 'Multi-Step-Ahead Prediction of Exchange Rates Using Artificial Neural Networks: A Study on Selected Sri Lankan Foreign Exchange Rates', v: '14th Conference on Industrial and Information Systems (ICIIS), IEEE, 488–493' },
+    { y: 2019, type: 'Conference', a: 'Premarathne WPJ, Fernando TGI', t: 'Optimizing the Electrical Wire Routing Through Multiple Points Using Multi Objective Ant Colony Algorithms for Electrical Wire Routing (MOACS-EWR)', v: 'IEEE 14th Conference on Industrial and Information Systems (ICIIS)' },
+    { y: 2019, type: 'Journal', a: 'Dikwatta U, Fernando TGI', t: 'Violence Detection in Social Media – Review', v: 'Vidyodaya Journal of Science, 22(2), 7–16' },
+    { y: 2019, type: 'Conference', a: 'Abayaratne SB, Ilmini W, Fernando TGI', t: 'Automated Methods to Identify Snake Species in Sri Lanka: A Review', v: '12th International Research Conference (IRC 2019), General Sir John Kotelawala Defence University' },
+    { y: 2019, type: 'Conference', a: 'Dias DS, Fernando TGI', t: 'Komposer – Automated Musical Note Generation based on Lyrics with Recurrent Neural Networks', v: 'IEEE First International Conference on Artificial Intelligence and Data Sciences (AiDAS)' },
+    { y: 2019, type: 'Journal', a: 'Ariyasingha IDID, Fernando TGI', t: 'A New Multi-Objective Ant Colony Optimisation Algorithm for Solving the Quadratic Assignment Problem', v: 'Vidyodaya Journal of Science, 22(1)' },
+    { y: 2019, type: 'Conference', a: 'Premarathne WPJ, Fernando TGI', t: 'Ant Colony Optimization Algorithm to Solve Electrical Cable Routing', v: 'International Conference on Computer Science, Electrical and Electronic Engineering (ICCEE), Kuala Lumpur, Malaysia' },
+    { y: 2019, type: 'Journal', selected: true, a: 'Ariyaratne MKA, Fernando TGI, Weerakoon S', t: 'Solving systems of nonlinear equations using a modified firefly algorithm', v: 'Swarm and Evolutionary Computation' },
+    { y: 2019, type: 'Conference', a: 'Lekamge TC, Fernando TGI', t: 'Finding the Gender of Personal Names and Finding the Effect of Gana on Personal Names with Long Short Term Memory', v: 'IEEE 19th International Conference on Advances in ICT for Emerging Regions (ICTer)' },
+
+    { y: 2018, type: 'Conference', a: 'Ilmini W, Fernando TGI', t: 'Computational personality traits assessment: A review', v: 'IEEE International Conference on Industrial and Information Systems (ICIIS)' },
+    { y: 2018, type: 'Journal', a: 'Ariyaratne A, Fernando TGI, Weerakoon S', t: 'A self-tuning firefly algorithm to tune the parameters of the ant colony system', v: 'International Journal of Swarm Intelligence, 3(4), 309–331' },
+    { y: 2018, type: 'Journal', a: 'Nishani HPS, Weerakoon S, Fernando TGI, Liyanage M', t: 'Weerakoon-Fernando Method with accelerated third-order convergence for systems of nonlinear equations', v: 'International Journal of Mathematical Modelling and Numerical Optimisation (IJMMNO), 8(3)' },
+
+    { y: 2017, type: 'Conference', a: 'Samarawickrama AJP, Fernando TGI', t: 'A recurrent neural network approach in predicting daily stock prices: An application to the Sri Lankan stock market', v: 'IEEE International Conference on Industrial and Information Systems (ICIIS), 1–6' },
+    { y: 2017, type: 'Journal', a: 'Ariyasinghe I, Fernando TGI', t: 'Random weight-based ant colony optimisation algorithm for the multi-objective optimisation problems', v: 'International Journal of Swarm Intelligence (IJSI), 3(1)' },
+
+    { y: 2016, type: 'Conference', a: 'Ariyasinghe I, Fernando TGI', t: 'A modified Pareto strength ant colony optimization algorithm for the multi-objective optimization problems', v: 'IEEE International Conference on Information and Automation for Sustainability (ICIAfS), 1–6' },
+    { y: 2016, type: 'Conference', a: 'Gunasinghe HN, Fernando TGI', t: 'A Computer Aided System to Identify the Face Shape of a Person using Machine Learning and Image Processing Techniques', v: '16th Annual Conference of Science Council of Asia, Colombo, Sri Lanka' },
+    { y: 2016, type: 'Journal', a: 'Ilmini KS, Fernando TGI', t: 'Persons\' Personality Traits Recognition using Machine Learning Algorithms and Image Processing Techniques', v: 'Advances in Computer Science: an International Journal, 5(1), 40–44' },
+    { y: 2016, type: 'Conference', a: 'Premarathne WPJ, Fernando TGI', t: 'Wire and cable routings and harness designing systems with AI, a review', v: 'IEEE International Conference on Information and Automation for Sustainability (ICIAfS), 1–6' },
+    { y: 2016, type: 'Conference', a: 'Ariyaratne MKA, Fernando TGI, Weerakoon S', t: 'A self-tuning modified firefly algorithm to solve univariate nonlinear equations with complex roots', v: 'IEEE Congress on Evolutionary Computation (CEC)' },
+    { y: 2016, type: 'Preprint', a: 'Ariyaratne MKA, Fernando TGI, Weerakoon S', t: 'A self-tuning Firefly algorithm to tune the parameters of Ant Colony System (ACSFA)', v: 'arXiv, Cornell University Library' },
+
+    { y: 2015, type: 'Journal', a: 'Ariyasinghe I, Fernando TGI', t: 'A Performance Study for the Multi-objective Ant Colony Optimization Algorithms on the Job Shop Scheduling Problem', v: 'International Journal of Computer Applications (IJCA), 132(14)' },
+    { y: 2015, type: 'Other', a: 'Ariyaratne MKA, Fernando TGI, Weerakoon S', t: 'An Archived Firefly Algorithm; A mathematical software to solve univariate nonlinear equations', v: '' },
+    { y: 2015, type: 'Conference', a: 'Ariyaratne MKA, Fernando TGI, Weerakoon S', t: 'A Modified Firefly Algorithm to Solve Univariate Nonlinear Equations with Complex Roots', v: '15th International Conference on Advances in ICT for Emerging Regions (ICTer), IEEE, 160–167' },
+    { y: 2015, type: 'Journal', a: 'Ariyasinghe I, Fernando TGI', t: 'Performance analysis of the multi-objective ant colony optimization algorithms for the traveling salesman problem', v: 'Swarm and Evolutionary Computation' },
+
+    { y: 2013, type: 'Conference', a: 'Fernando TGI, Weerakoon S', t: 'Improved Newton\'s Method for functions of Two Variables', v: 'Proceedings of the 69th Annual Sessions of the Sri Lanka Association for the Advancement of Science (SLAAS), 255' },
+    { y: 2013, type: 'Conference', a: 'Niroshika UAA, Meegama RGN, Fernando TGI', t: 'Active contour model to extract boundaries of teeth in dental X-ray images', v: '8th International Conference on Computer Science & Education (ICCSE), IEEE, 396–401' },
+    { y: 2013, type: 'Journal', a: 'Wanigasooriya J, Fernando TGI', t: 'Multi-Vehicle Passenger Allocation and Route Optimization for Employee Transportation using Genetic Algorithms', v: 'International Journal of Computer Applications (IJCA), 64(20), 1–9' },
+
+    { y: 2012, type: 'Journal', a: 'Fernando TGI, Kalganova T', t: 'Multi-Colony Ant Systems for Multi-Hose Routing', v: 'International Journal of Computer Applications (IJCA), 59(2), 1–14' },
+
+    { y: 2011, type: 'Conference', a: 'Peiris PCP, Weerakoon S, Fernando TGI', t: 'Review of the citations of the research paper: A variant of Newton\'s method with accelerated third-order convergence', v: 'Proceedings of the 67th Annual Sessions of the Sri Lanka Association for the Advancement of Science (SLAAS), 143' },
+    { y: 2011, type: 'Journal', a: 'Udeshani KAG, Meegama RGN, Fernando TGI', t: 'Statistical feature-based neural network approach for the detection of lung cancer in chest x-ray images', v: 'International Journal of Image Processing (IJIP), 5(4), 425–434' },
+    { y: 2011, type: 'Conference', a: 'Abeysooriya R, Fernando TGI', t: 'Application of Genetic Algorithm to Optimize Cut-order Planning solutions in Apparel Industry', v: 'ERU Research Symposium, University of Moratuwa, Sri Lanka' },
+
+    { y: 2009, type: 'Thesis', a: 'Thantulage GI', t: 'Ant colony optimization based simulation of 3D automatic hose/pipe routing', v: 'PhD Thesis, Brunel University London, UK' },
+    { y: 2009, type: 'Conference', a: 'Salgado MDL, Weerakoon S, Fernando TGI', t: 'Degree Reduction of Bézier Curves', v: '50th Anniversary Academic Conference, University of Sri Jayewardenepura' },
+    { y: 2009, type: 'Conference', a: 'Hettiarachchi DVS, Fernando TGI', t: 'Mobile Navigation System', v: '50th Anniversary Academic Conference, University of Sri Jayewardenepura' },
+    { y: 2009, type: 'Conference', a: 'Bandara R, Indranama P, Makalanda GS, Fernando TGI', t: 'Sinhala Language based projects developed by the DSCS', v: 'Symposium on Localised Systems and Applications, Sri Lanka' },
+
+    { y: 2006, type: 'Conference', a: 'Thantulage G, Kalganova T, Fernando WAC', t: 'A grid-based ant colony algorithm for automatic 3D hose routing', v: 'IEEE International Conference on Evolutionary Computation (CEC), 48–55' },
+
+    { y: 2002, type: 'Thesis', a: 'Fernando TGI', t: 'Designing Sinhala Characters using Bézier Curves and B-Spline Curves', v: 'MSc Thesis, Computer Science, Asian Institute of Technology, Thailand' },
+
+    { y: 2000, type: 'Journal', selected: true, a: 'Fernando TGI, Weerakoon S', t: 'A variant of Newton\'s method with accelerated third-order convergence', v: 'Applied Mathematics Letters, 13(8), 87–93' },
+
+    { y: 1998, type: 'Thesis', a: 'Fernando TGI', t: 'Improved Newton\'s Method for Solving Nonlinear Equations', v: 'MSc Thesis, Industrial Mathematics, University of Sri Jayewardenepura' },
+  ];
+
+  const AWARDS = [
+    { title: 'President\'s Award for Scientific Publications', org: 'Sri Lanka', year: '2019 · 2015 · 2000', kind: 'Award' },
+    { title: 'Highest Number of Citations, Faculty of Applied Sciences', org: 'University of Sri Jayewardenepura', year: '2016 · 2015', kind: 'Award' },
+    { title: 'Award for Publishing in an SCI-Expanded Indexed Journal', org: 'University of Sri Jayewardenepura', year: '2015', kind: 'Award' },
+    { title: 'Best Poster – Science', org: '50th Anniversary Academic Conference, University of Sri Jayewardenepura', year: '2009', kind: 'Award' },
+    { title: 'NVIDIA GPU Research Grant — Tesla K40 (Active) GPU', org: 'NVIDIA Corporation', year: '2016', kind: 'Grant' },
+    { title: 'EPSRC Scholarship', org: 'Engineering and Physical Sciences Research Council, UK', year: '2005', kind: 'Scholarship' },
+    { title: 'President\'s Scholarship', org: 'Sri Lanka', year: '2004', kind: 'Scholarship' },
+    { title: 'Asian Development Bank (ADB) Scholarship', org: 'MSc in Computer Science, AIT Thailand', year: '2000 – 2002', kind: 'Scholarship' },
+  ];
+
+  const STUDENT_AWARDS = [
+    { who: 'NH Wanigasinghe (Undergraduate)', what: 'Second Runner-up, Undergraduate Category — Best Research Awards, Institute of Applied Statistics, Sri Lanka', year: '2024' },
+    { who: 'Dr. MKA Ariyaratne (Postgraduate)', what: 'President\'s Award for Scientific Publications, Sri Lanka', year: '2019' },
+    { who: 'Ms. WMKS Ilmini (Postgraduate)', what: 'Merit Award (Postgraduate Category)', year: '2019' },
+    { who: 'Mr. Dulan Dias (Undergraduate)', what: 'Gold Award (Tertiary Student Project), National Best Quality ICT Awards — Komposer', year: '2018' },
+    { who: 'Mr. Dulan Dias (Undergraduate)', what: 'Silver Award (Tertiary Student Project), Asia Pacific ICT Alliance Awards (APICTA) — Komposer', year: '2018' },
+    { who: 'Mr. Priyankan Kirupaharan (Undergraduate)', what: 'Bronze Award (Tertiary Student Project) and Certificate of Appreciation (Business & Commerce), National Best Quality ICT Awards — Fish species identification app', year: '2018' },
+    { who: 'SL Heenatigala', what: 'Best Oral Presentation, Section E1 – Physical Sciences, 73rd SLAAS Annual Sessions', year: '2017' },
+    { who: 'Ms. IDID Ariyasingha (Postgraduate)', what: 'President\'s Award for Scientific Publications, Sri Lanka', year: '2015' },
+  ];
+
+  /* =====================================================================
+     RENDERING
+     ===================================================================== */
+  const $ = (s, el = document) => el.querySelector(s);
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const SELF_RE = /(Fernando,? TGI|Thantulage GI?|Thantulage G(?=,|$))/g;
+  const boldSelf = (authors) => esc(authors).replace(SELF_RE, '<strong class="text-navy-900 font-semibold">$1</strong>');
+
+  // Experience timelines
+  function renderTimeline(el, items) {
+    el.innerHTML = items.map((i) => `
+      <li class="timeline-item relative ${i.current ? 'current' : ''}">
+        <p class="text-xs font-semibold text-indigo-600 uppercase tracking-wide">${esc(i.when)}</p>
+        <p class="font-semibold text-navy-900 mt-1">${esc(i.role)}</p>
+        <p class="text-sm text-slate-500">${esc(i.org)}</p>
+      </li>`).join('');
+  }
+  renderTimeline($('#appointments'), APPOINTMENTS);
+  renderTimeline($('#leadership'), LEADERSHIP);
+  $('#service').innerHTML = SERVICE.map((s) => `<li>${esc(s)}</li>`).join('');
+
+  // Supervision tabs
+  (function renderSupervision() {
+    const keys = Object.keys(SUPERVISION);
+    const count = (k) => SUPERVISION[k].groups.reduce((n, g) => n + g.items.length, 0);
+    const tabs = $('#supTabs'), panels = $('#supPanels');
+
+    tabs.innerHTML = keys.map((k, i) => `
+      <button role="tab" id="tab-${k}" aria-controls="panel-${k}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}"
+        class="tab-btn rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:border-navy-900 transition-colors">
+        ${esc(SUPERVISION[k].label)} <span class="ml-1 opacity-70 font-normal">${count(k)}</span>
+      </button>`).join('');
+
+    const statusBadge = (s) => s === 'ongoing'
+      ? '<span class="inline-block rounded-full bg-amber-50 text-amber-800 border border-amber-200 text-[11px] font-semibold px-2 py-0.5">Ongoing</span>'
+      : s === 'completed'
+        ? '<span class="inline-block rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-[11px] font-semibold px-2 py-0.5">Completed</span>'
+        : '';
+
+    const itemHTML = (it) => `
+      <li class="py-4 grid sm:grid-cols-[12rem_1fr] gap-1 sm:gap-6">
+        <div>
+          <p class="font-semibold text-navy-900">${esc(it.name)}</p>
+          <p class="text-xs text-slate-500 mt-0.5 flex items-center gap-2">${esc(it.year)} ${statusBadge(it.status)}</p>
+        </div>
+        <p class="text-sm">${esc(it.title)}</p>
+      </li>`;
+
+    panels.innerHTML = keys.map((k, i) => {
+      const groups = SUPERVISION[k].groups;
+      const single = groups.length === 1;
+      const body = groups.map((g, gi) => {
+        let items = g.items;
+        // Split completed/ongoing for PhD & MPhil
+        const hasStatus = items.some((x) => x.status);
+        const list = hasStatus
+          ? ['ongoing', 'completed'].map((s) => {
+              const sub = items.filter((x) => x.status === s);
+              return sub.length ? `<h4 class="mt-2 text-xs uppercase tracking-wider font-semibold text-slate-500">${s === 'ongoing' ? 'In progress' : 'Completed'} (${sub.length})</h4><ul class="divide-y divide-slate-100">${sub.map(itemHTML).join('')}</ul>` : '';
+            }).join('<div class="h-4"></div>')
+          : `<ul class="divide-y divide-slate-100">${items.map(itemHTML).join('')}</ul>`;
+        if (single) return `<div class="rounded-2xl bg-white border border-slate-200 p-5 sm:p-6"><h3 class="font-serif text-lg font-semibold text-navy-900 mb-2">${esc(g.name)}</h3>${list}</div>`;
+        return `
+          <details class="rounded-2xl bg-white border border-slate-200" ${gi === 0 ? 'open' : ''}>
+            <summary class="flex items-center justify-between gap-4 px-5 sm:px-6 py-4">
+              <span class="font-serif text-lg font-semibold text-navy-900">${esc(g.name)} <span class="font-sans text-sm font-normal text-slate-500">· ${items.length}</span></span>
+              <svg class="chev w-5 h-5 text-slate-500 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="px-5 sm:px-6 pb-4">${list}</div>
+          </details>`;
+      }).join('<div class="h-4"></div>');
+      return `<div role="tabpanel" id="panel-${k}" aria-labelledby="tab-${k}" ${i === 0 ? '' : 'hidden'}>${body}</div>`;
+    }).join('');
+
+    function select(k) {
+      keys.forEach((kk) => {
+        const on = kk === k;
+        const t = $('#tab-' + kk);
+        t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1;
+        $('#panel-' + kk).hidden = !on;
+      });
+    }
+    tabs.addEventListener('click', (e) => { const b = e.target.closest('[role=tab]'); if (b) select(b.id.slice(4)); });
+    tabs.addEventListener('keydown', (e) => {
+      const idx = keys.findIndex((k) => $('#tab-' + k).getAttribute('aria-selected') === 'true');
+      let n = null;
+      if (e.key === 'ArrowRight') n = (idx + 1) % keys.length;
+      if (e.key === 'ArrowLeft') n = (idx - 1 + keys.length) % keys.length;
+      if (n !== null) { e.preventDefault(); select(keys[n]); $('#tab-' + keys[n]).focus(); }
+    });
+
+    const total = keys.reduce((n, k) => n + count(k), 0);
+    const phdDone = SUPERVISION.phd.groups[0].items.filter((x) => x.status === 'completed').length;
+    $('#supSummary').textContent = `${total} research students across PhD, MPhil, MSc and BSc Honours levels`;
+    $('#statTheses').textContent = total;
+    $('#statPhd').textContent = phdDone;
+  })();
+
+  // Publications
+  (function renderPublications() {
+    const pubLink = (p) => p.doi ? `https://doi.org/${p.doi}` : (p.url || '');
+    const typeStyle = {
+      'Journal': 'bg-indigo-50 text-indigo-800 border-indigo-100',
+      'Conference': 'bg-sky-50 text-sky-800 border-sky-100',
+      'Book Chapter': 'bg-violet-50 text-violet-800 border-violet-100',
+      'Thesis': 'bg-slate-100 text-slate-700 border-slate-200',
+      'Preprint': 'bg-amber-50 text-amber-800 border-amber-100',
+      'Other': 'bg-slate-100 text-slate-700 border-slate-200',
+    };
+    $('#statPubs').textContent = PUBS.filter((p) => p.type !== 'Thesis').length;
+
+    // Selected cards
+    $('#selectedPubs').innerHTML = PUBS.filter((p) => p.selected).map((p) => {
+      const link = pubLink(p);
+      return `
+        <li class="rounded-xl border border-slate-200 bg-slate-50 p-5 hover:border-indigo-300 transition-colors flex flex-col">
+          <div class="flex items-center gap-2 text-xs">
+            <span class="font-semibold text-indigo-700">${p.y}</span>
+            <span class="rounded-full border px-2 py-0.5 ${typeStyle[p.type]}">${p.type}</span>
+          </div>
+          <p class="font-serif text-[1.05rem] font-semibold text-navy-900 mt-2 leading-snug">${esc(p.t)}</p>
+          <p class="text-sm mt-1.5">${boldSelf(p.a)}</p>
+          <p class="text-sm text-slate-500 italic mt-1">${esc(p.v)}</p>
+          ${link ? `<a href="${esc(link)}" target="_blank" rel="noopener noreferrer" class="mt-3 text-sm font-semibold text-indigo-700 hover:text-indigo-900 self-start">${p.doi ? 'DOI' : 'View paper'} ↗</a>` : ''}
+        </li>`;
+    }).join('');
+
+    // Filters
+    const years = [...new Set(PUBS.map((p) => p.y))].sort((a, b) => b - a);
+    const types = ['Journal', 'Conference', 'Book Chapter', 'Preprint', 'Thesis', 'Other'].filter((t) => PUBS.some((p) => p.type === t));
+    $('#pubYear').innerHTML = '<option value="">All years</option>' + years.map((y) => `<option value="${y}">${y}</option>`).join('');
+    $('#pubType').innerHTML = '<option value="">All types</option>' + types.map((t) => `<option value="${t}">${t}${t === 'Thesis' ? 'es' : 's'}</option>`).join('');
+
+    const search = $('#pubSearch'), yearSel = $('#pubYear'), typeSel = $('#pubType');
+
+    const highlight = (html, terms) => {
+      if (!terms.length) return html;
+      // Only highlight in text nodes (outside tags)
+      const re = new RegExp('(' + terms.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')', 'gi');
+      return html.split(/(<[^>]+>)/).map((part) => part.startsWith('<') ? part : part.replace(re, '<mark>$1</mark>')).join('');
+    };
+
+    function render() {
+      const q = search.value.trim().toLowerCase();
+      const terms = q.split(/\s+/).filter(Boolean);
+      const y = yearSel.value, t = typeSel.value;
+      const filtered = PUBS.filter((p) => {
+        if (y && String(p.y) !== y) return false;
+        if (t && p.type !== t) return false;
+        if (!terms.length) return true;
+        const hay = `${p.t} ${p.a} ${p.v} ${p.y} ${p.type}`.toLowerCase();
+        return terms.every((term) => hay.includes(term));
+      });
+
+      $('#pubCount').textContent = filtered.length === PUBS.length
+        ? `Showing all ${PUBS.length} entries`
+        : `Showing ${filtered.length} of ${PUBS.length} entries`;
+
+      if (!filtered.length) {
+        $('#pubList').innerHTML = `<div class="rounded-xl border border-dashed border-slate-300 p-10 text-center text-slate-500">No publications match these filters. <button class="text-indigo-700 font-semibold" onclick="document.getElementById('pubReset').click()">Reset filters</button></div>`;
+        return;
+      }
+
+      const byYear = {};
+      filtered.forEach((p) => (byYear[p.y] = byYear[p.y] || []).push(p));
+      $('#pubList').innerHTML = Object.keys(byYear).sort((a, b) => b - a).map((yr) => `
+        <div class="grid md:grid-cols-[5rem_1fr] gap-2 md:gap-6 py-6 border-t border-slate-200 first:border-t-0">
+          <h3 class="font-serif text-2xl font-semibold text-indigo-700 md:sticky md:top-24 self-start">${yr}</h3>
+          <ol class="space-y-5">
+            ${byYear[yr].map((p) => {
+              const link = pubLink(p);
+              return `
+              <li class="group">
+                <p class="text-[0.97rem] text-navy-900 font-medium leading-snug">${highlight(esc(p.t), terms)}</p>
+                <p class="text-sm mt-1">${highlight(boldSelf(p.a), terms)}</p>
+                <p class="text-sm text-slate-500 mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1">
+                  ${p.v ? `<span class="italic">${highlight(esc(p.v), terms)}</span>` : ''}
+                  <span class="not-italic rounded-full border px-2 py-0.5 text-[11px] ${typeStyle[p.type]}">${p.type}</span>
+                  ${link ? `<a href="${esc(link)}" target="_blank" rel="noopener noreferrer" class="text-indigo-700 hover:text-indigo-900 font-semibold text-xs">${p.doi ? 'DOI: ' + esc(p.doi) : 'Link'} ↗</a>` : ''}
+                </p>
+              </li>`;
+            }).join('')}
+          </ol>
+        </div>`).join('');
+    }
+
+    let timer;
+    search.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(render, 120); });
+    yearSel.addEventListener('change', render);
+    typeSel.addEventListener('change', render);
+    document.querySelectorAll('.topic-chip').forEach((b) => b.addEventListener('click', () => { search.value = b.dataset.q; render(); }));
+    $('#pubReset').addEventListener('click', () => { search.value = ''; yearSel.value = ''; typeSel.value = ''; render(); });
+    render();
+  })();
+
+  // Awards
+  (function renderAwards() {
+    const kindStyle = { Award: 'text-amber-700 bg-amber-50', Scholarship: 'text-indigo-700 bg-indigo-50', Grant: 'text-emerald-700 bg-emerald-50' };
+    const icon = {
+      Award: '<path stroke-linecap="round" stroke-linejoin="round" d="M8 21h8M12 17v4M7 4h10v4a5 5 0 01-10 0V4zM7 6H4a3 3 0 003 4M17 6h3a3 3 0 01-3 4"/>',
+      Scholarship: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 4L2 9l10 5 10-5-10-5zM6 11v5c3 2 9 2 12 0v-5"/>',
+      Grant: '<rect x="4" y="7" width="16" height="10" rx="2"/><path d="M8 7V5M12 7V5M16 7V5M8 19v-2M12 19v-2M16 19v-2"/><rect x="9" y="10" width="6" height="4"/>',
+    };
+    $('#awardList').innerHTML = AWARDS.map((a) => `
+      <li class="reveal rounded-2xl bg-white border border-slate-200 p-5 flex gap-4">
+        <div class="w-11 h-11 rounded-xl grid place-items-center shrink-0 ${kindStyle[a.kind]}" aria-hidden="true">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">${icon[a.kind]}</svg>
+        </div>
+        <div>
+          <p class="font-semibold text-navy-900 leading-snug">${esc(a.title)}</p>
+          <p class="text-sm text-slate-500 mt-0.5">${esc(a.org)}</p>
+          <p class="text-xs font-semibold text-indigo-700 mt-1.5">${esc(a.year)}</p>
+        </div>
+      </li>`).join('');
+    $('#studentAwards').innerHTML = STUDENT_AWARDS.map((s) => `
+      <li class="py-3 grid sm:grid-cols-[4rem_1fr] gap-1 sm:gap-4">
+        <span class="font-semibold text-indigo-700">${esc(s.year)}</span>
+        <span><strong class="text-navy-900">${esc(s.who)}</strong> — ${esc(s.what)}</span>
+      </li>`).join('');
+  })();
+
+  /* =====================================================================
+     UI BEHAVIOUR
+     ===================================================================== */
+  $('#year').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  const menuBtn = $('#menuBtn'), mobileMenu = $('#mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('hidden') === false;
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target.closest('a')) { mobileMenu.classList.add('hidden'); menuBtn.setAttribute('aria-expanded', 'false'); }
+  });
+
+  // Header shadow + back-to-top
+  const header = $('#siteHeader'), toTop = $('#backToTop');
+  const onScroll = () => {
+    const y = window.scrollY;
+    header.classList.toggle('shadow-sm', y > 8);
+    const show = y > 600;
+    toTop.classList.toggle('opacity-0', !show);
+    toTop.classList.toggle('pointer-events-none', !show);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Active nav link
+  const sections = ['about', 'experience', 'research', 'publications', 'awards', 'teaching', 'contact'].map((id) => document.getElementById(id));
+  const links = document.querySelectorAll('#navLinks .nav-link');
+  const navObs = new IntersectionObserver((entries) => {
+    entries.forEach((en) => {
+      if (en.isIntersecting) {
+        links.forEach((l) => {
+          const on = l.getAttribute('href') === '#' + en.target.id;
+          l.classList.toggle('active', on);
+          if (on) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current');
+        });
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach((s) => navObs.observe(s));
+
+  // Reveal on scroll
+  const revObs = new IntersectionObserver((entries) => {
+    entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('visible'); revObs.unobserve(en.target); } });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach((el) => revObs.observe(el));
+
+  // Copy buttons
+  document.querySelectorAll('.copy-btn').forEach((b) => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copied'; }
+    catch { b.textContent = 'Press Ctrl+C'; }
+    setTimeout(() => (b.textContent = 'Copy'), 1600);
+  }));
+  </script>
+</body>
+</html>
